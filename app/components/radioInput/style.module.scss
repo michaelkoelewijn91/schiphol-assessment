@@ -1,0 +1,43 @@
+.radio {
+    position: relative;
+    input {
+        left: -99999px;
+        position: absolute;
+        &:checked + label:before {
+            transform: translateY(-50%) scale(0.5);
+        }
+
+        &:focus + label:after {
+            box-shadow: 0 0 0 2px var(--color-morning-pink);
+        }
+    }
+
+    label {
+        position: relative;
+        padding: 0 0 0 1.5em;
+        font-weight: 300;
+        cursor: pointer;
+        &:before,
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 1.125em;
+            height: 1.125em;
+            border-radius: 100%;
+        }
+
+        &:before {
+            background-color: var(--color-morning-pink);
+            z-index: 2;
+            transform: translateY(-50%) scale(0);
+        }
+        &:after {
+            background-color: #fff;
+            transform: translateY(-50%);
+            border: 2px solid var(--color-morning-pink);
+        }
+    }
+}

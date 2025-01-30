@@ -1,15 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: "Noto sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    --color-*: initial;
+    --color-schiphol-blue: #141251;
+    --color-afternoon-blue: #1b60db;
+    --color-seebuyfly-yellow: #f9c900;
+
+    /* Secondary colours */
+    --color-morning-pink: #aa3191;
+    --color-lightmorning-pink: #ff8fb2;
+    --color-lightmorning-blue: #94b0ea;
+    --color-dusk-green: #027e9b;
+    --color-dusk-blue: #25d7f4;
+    --color-evening-pink: #6552a8;
+    --color-evening-lilac: #d285d6;
+
+    /* Greys */
+    --color-black: #000;
+    --color-grey-storm: #706a8a;
+    --color-grey-overcast: #9491aa;
+    --color-grey-broken: #bfbdcc;
+    --color-grey-scattered: #eae9ee;
+    --color-grey-few: #f2f1f4;
+    --color-white: #fff;
+
+    /* Signal colours */
+    --color-dark-red: #d0021b;
+    --color-green: #128a0b;
+    --color-light-blue: #eef6ff;
+    --color-light-green: #d0e8cf;
+    --color-light-yellow: #fdfbda;
+
+    /* Domain gradients */
+    --color-gradient-flights: linear-gradient(90deg, #a35bcd 0%, #1b60db 80%);
+    --color-gradient-parking: linear-gradient(90deg, #d472bc 0%, #1b60db 80%);
+    --color-gradient-at-schiphol: linear-gradient(90deg, #d472bc 0%, #1b60db 80%);
+    --color-gradient-more: linear-gradient(90deg, #6892ea 0%, #1b60db 80%);
+    --color-gradient-privium: linear-gradient(90deg, #027e9b 40%, #1b60db 90%);
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+    @apply bg-light-blue;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+/* Corrected Noto Sans class */
+.noto-sans {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Change as needed */
+    font-style: normal;
+}
+
+@utility text-gradient-pink {
+    background-image: linear-gradient(135deg, #141251, #aa3191 50%, #ff8fb2);
+    color: transparent;
+    background-clip: text;
+}
+
+@utility container {
+    max-width: 1020px;
+    margin-inline: auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+@utility focus-yellow {
+    box-shadow: inset 0 0 0 2px var(--color-morning-pink);
 }

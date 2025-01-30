@@ -1,100 +1,64 @@
-# Welcome to React Router!
+# Flight Search App ✈️
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Deze applicatie biedt een eenvoudige zoekfunctionaliteit voor vluchten, waarbij de gebruiker op basis van een ingevoerde bestemming of vluchtnummer relevante vluchten kan vinden. De gegevens worden asynchroon opgehaald en kunnen gesorteerd worden op datum en verwachte tijd.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## 📌 Features
 
-## Features
+-   Twee implementaties: een simpele fetch en een fetcher die de methodiek van React Router 7 volgt.
+-   CSS definitions met Tailwind en (S)CSS modules.
+-   Zoekfunctionaliteit met minimaal 3 karakters invoer en debounce om de API niet onnodig te belasten.
+-   Vluchten opgehaald via een API-route.
+-   Resultaten beperkt tot maximaal 5 vluchten.
+-   Sorteermogelijkheden op datum en tijd.
+-   Tests met zowel Playwright als Jest.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 📌 **Setup**
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
+```sh
+# install dependencies
 npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
 npm run dev
+
+# Run e2e happy flow
+npm run test-e2e
+
+# Run unit tests
+npm run test-unit
 ```
 
-Your application will be available at `http://localhost:5173`.
+## 🎨 Styling
 
-## Building for Production
+De applicatie gebruikt de officiële Schiphol kleuren. Deze zijn gedefinieerd in **app.css** via Tailwind theme definitions.
 
-Create a production build:
+## 🚀 API
 
-```bash
-npm run build
-```
+De vluchtgegevens worden opgehaald via een aparte API-route:  
+**Bestand:** `routes/api/byQuery.tsx`
 
-## Deployment
+## 🏗️ Implementaties
 
-### Docker Deployment
+Er zijn twee implementaties van de fetch-functionaliteit:
 
-This template includes three Dockerfiles optimized for different package managers:
+1. **Remix / React Router 7 defaults - Fetcher**
+    - Bestand: `app/routes/index.tsx`
+    - url: http://localhost:5173
+2. **Eenvoudige fetch (volgens het assessment "keep it simple")**
+    - Bestand: `app/routes/withFetch.tsx`
+    - url: http://localhost:5173/withfetch
 
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
+## 🎨 CSS Implementatie
 
-To build and run using Docker:
+De styling is op twee manieren geschreven om zowel Tailwind- als (S)CSS-kennis aan te tonen:
 
-```bash
-# For npm
-docker build -t my-app .
+-   **Tailwind CSS** (Thema en globale stijlen)
+-   **(S)CSS module** – Specifiek voorbeeld:
+    -   Bestand: `app/components/radioInput/style.module.scss`
 
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
+## 🧪 Testing
 
-# For bun
-docker build -f Dockerfile.bun -t my-app .
+De applicatie bevat testvoorbeelden met zowel Playwright als Jest:
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+-   **Playwright** (End-to-end tests): `app/tests/happyflow.spec.ts`
+-   **Jest** (Unittests): `app/utils/utils.test.ts`
 
 ---
-
-Built with ❤️ using React Router.
